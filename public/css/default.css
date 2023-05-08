@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400;700&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Mono", monospace;
+  background: #101010;
+  color: #ECEDFF;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+header i.fa-solid {
+  font-size: 2rem;
+}
+header .control div:not(:last-child) {
+  margin-right: 0.8rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  background: linear-gradient(95deg, #11E5B3 0.65%, #683DE5 102%);
+}
+
+#search i.fa-solid {
+  font-size: 1.2rem;
+}
+#search input {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+#search input::placeholder {
+  color: #ECEDFF;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 22px;
+}
+#search hr {
+  color: #ECEDFF;
+  opacity: 1;
+  padding: 0;
+  margin: 0;
+}

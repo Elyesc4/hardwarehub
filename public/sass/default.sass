@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400;700&display=swap')
+
+*
+    box-sizing: border-box
+
+$white: #ECEDFF
+$primary: #683de5
+$secondary: #11e5b3
+$bg: #101010
+$text: $white
+$gradient: linear-gradient(95deg, #11E5B3 0.65%, #683DE5 102%)
+
+html,
+body
+    height: 100vh
+    margin: 0
+    padding: 0
+    font-family: 'Roboto Mono', monospace
+    background: $bg
+    color: $text
+
+p
+    margin: 0
+    padding: 0
+
+header
+    i.fa-solid
+        font-size: 2rem
+    .control
+        div:not(:last-child)
+            margin-right: .8rem 
+            
+
+footer
+    position: absolute
+    bottom: 0
+    width: 100vw
+    background: $gradient
+
+#search
+    i.fa-solid
+        font-size: 1.2rem
+    input
+        padding: 0
+        background-color: transparent
+        border: none
+        &::placeholder
+            color: $text
+            font-style: normal
+            font-weight: 400
+            font-size: 1.1rem
+            line-height: 22px
+    hr
+        color: $white
+        opacity: 1
+        padding: 0
+        margin: 0

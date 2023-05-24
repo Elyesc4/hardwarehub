@@ -1,8 +1,30 @@
-<div class="container-fluid">
-    <div class="d-flex flex-column justify-content-center align-items-center">
-        <h1>Hello you</h1>
-        <h2>Welcome to</h2>
-        <hr>
-        <h1>Hardware Hub</h1>
+<div class="container-fluid h-100">
+    <div class="container h-100 d-flex wrapper">
+        <div class="heading">
+            <h1>
+                Deine Top Auswahl <br />
+                An Angeboten
+            </h1>
+        </div>
+        <div class="carousel-wrapper">
+            <div id="carousel">
+
+                <% for( let i = 0; i < produckts.length; i++ ) { %>
+                    <% produckt = produckts[i] %>
+                    <div class="tile tile-<%= i %> d-flex flex-column justify-content-between" data-active="<%= i === 1 ? 'true' : 'false'  %>" >
+                        <div class="flex-grow-1 placeholder-glow">
+                            <img src="<%= produckt.img_path %>"alt="<%= produckt.name %>">
+                        </div>
+                        <div>
+                            <h4><%= produckt.name %></h4>
+                            <p><%= produckt.description %></p>
+                        </div>
+                        <div>
+                            <p><%= produckt.price_netto %>€</p>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
     </div>
 </div>

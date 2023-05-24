@@ -1,0 +1,64 @@
+.wrapper {
+  position: relative;
+}
+.wrapper .heading {
+  z-index: 4;
+  position: absolute;
+  right: 0;
+}
+.wrapper .heading h1 {
+  margin-top: 1.5rem;
+  text-align: end;
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+}
+.carousel-wrapper #carousel {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.carousel-wrapper #carousel .tile {
+  padding: 1rem;
+  z-index: 2;
+  height: 20rem;
+  width: 16.25rem;
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: rgba(236, 237, 255, 0.062745098);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2509803922);
+}
+.carousel-wrapper #carousel .tile img {
+  max-width: 100%;
+}
+.carousel-wrapper #carousel .tile[data-active=true] {
+  font-size: 1.5rem;
+  z-index: 1;
+  height: 34rem;
+  width: 410px;
+  background: linear-gradient(95deg, #11E5B3 0.65%, #683DE5 102%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2509803922), -110px 12px 200px 12px rgba(17, 229, 179, 0.8), 110px 12px 200px 12px rgba(104, 61, 229, 0.8);
+}
+.carousel-wrapper::before {
+  content: "";
+  position: absolute;
+  left: 96%;
+  z-index: 3;
+  height: 100%;
+  width: 4%;
+  background: linear-gradient(90deg, rgba(16, 16, 16, 0) 0%, #101010 100%);
+}
+.carousel-wrapper::after {
+  content: "";
+  position: relative;
+  left: 100%;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  background: #101010;
+}

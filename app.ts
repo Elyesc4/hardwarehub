@@ -39,18 +39,55 @@ app.set('view engine', 'ejs');
 // })
 const db: Database = new Database();
 
+const user = 1;
+
 app.get('/', (req: Request, res: Response) => {
 
     db.exQuery(
-        `SELECT p.*, IFNULL(pimg.img_path, '') AS img_path
+        `SELECT p.*, IFNULL(pim.img_path, '') AS img_path
         FROM products p
-        LEFT JOIN product_imgs pimg ON p.id = pimg.product_id AND pimg.img_oder = 0;`
+        LEFT JOIN product_imgs pim ON p.id = pim.product_id AND pim.img_oder = 0
+        ORDER BY p.id;`
     ).then((produckts) => {
         res.render('index', {
             styles: 'index',
             title: 'Hub Start',
             produckts: produckts
         });        
+    })
+});
+
+app.get('/cart', (req: Request, res: Response) => {
+    
+    db.exQuery(
+        `SELECT p.*
+        FROM products p
+        JOIN order_products op ON p.id = op.product_id
+        JOIN orders o ON op.order_id = o.id
+        WHERE o.customer_id = 1
+        AND o.status_id = 'inCart';`
+    ).then((inCart) => {
+        res.render('cart', {
+            styles: 'cart',
+            title: 'Hub Cart',
+            inCart: inCart
+        });
+    })
+});
+
+app.get('/product/:id', (req: Request, res: Response) => {
+    let id = req.params.id
+    
+    db.exQuery(
+        `SELECT * FROM products WHERE id = ${id}`
+    ).then((product) => {
+        console.log(product[0]);
+        
+        res.render('product', {
+            styles: 'product',
+            title: 'Hub Product',
+            product: product.length === 1 ? product[0] : product,
+        });     
     })
 });
 

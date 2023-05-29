@@ -14,10 +14,11 @@ html,
 body
     height: 100vh
     // width: 100vw
-    overflow: hidden
+    // overflow: hidden
     margin: 0
     padding: 0
     font-family: 'Roboto Mono', monospace
+    font-size: 16px
     background: $bg
     color: $text
 
@@ -25,13 +26,31 @@ p
     margin: 0
     padding: 0
 
+a 
+    all: unset
+
+h1, h2, h3
+    margin: 0
+    padding: 0
+
+h2, h3
+    font-weight: bold
+
+h1
+    font-size: 2.5rem
+
+h2    
+    font-size: 2rem
+
+h3
+    font-size: 1rem        
+
 header
-    i.fa-solid
-        font-size: 2rem
     .control
+        i[class^="fa-"]
+            font-size: 2rem
         div:not(:last-child)
             margin-right: .8rem
-            
 
 footer
     z-index: 20
@@ -40,10 +59,34 @@ footer
     .pay_types
         font-size: 1.5rem
 
+button
+    all: unset
+    &:hover
+        i[class^="fa-"]
+            background: $gradient
+            -webkit-background-clip: text
+            -webkit-text-fill-color: transparent
+
+.tile, .tile-horizontal
+    padding: .8rem
+    z-index: 2
+    overflow: hidden
+    border-radius: 15px
+    background-color: #ecedff10
+    box-shadow: 0px 4px 4px #00000040
+
 #search
-    i.fa-solid
+    position: relative
+    i[class^="fa-"]
+        position: absolute
+        top: 0
+        right: 0
         font-size: 1.2rem
-    input
+    input[type="search"]
+        all: unset
+        &::-webkit-search-decoration, &::-webkit-search-cancel-button, &::-webkit-search-results-button, &::-webkit-search-results-decoration
+            display: none
+        width: 100%
         padding: 0
         background-color: transparent
         border: none

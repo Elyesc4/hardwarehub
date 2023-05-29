@@ -1,0 +1,39 @@
+.wrapper {
+  position: relative;
+}
+.wrapper .heading h1 {
+  margin-bottom: 3rem;
+}
+.wrapper .content {
+  position: relative;
+}
+.wrapper .content .item-list {
+  height: 595px;
+  overflow-y: scroll;
+}
+.wrapper .content .item-list .tile-horizontal {
+  width: 100%;
+  height: 250px;
+}
+.wrapper .content .item-list .tile-horizontal:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.wrapper .content .item-list .tile-content {
+  position: relative;
+}
+.wrapper .content .item-list .tile-content .context-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.wrapper .content .item-list .tile-content img {
+  height: 100%;
+}
+.wrapper .content .item-list .tile-content h3 {
+  font-size: 1.5em;
+}
+.wrapper .content .item-list .tile-content .price {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}

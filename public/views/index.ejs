@@ -11,16 +11,28 @@
 
                 <% for( let i = 0; i < produckts.length; i++ ) { %>
                     <% produckt = produckts[i] %>
-                    <div class="tile tile-<%= i %> d-flex flex-column justify-content-between" data-active="<%= i === 1 ? 'true' : 'false'  %>" >
-                        <div class="flex-grow-1 placeholder-glow">
-                            <img src="<%= produckt.img_path %>"alt="<%= produckt.name %>">
-                        </div>
+                    <div class="tile tile-<%= i %> d-flex flex-column justify-content-between" data-active="<%= i === 1 ? 'true' : 'false'  %>" data-id="<%= produckt.id %>">
                         <div>
-                            <h4><%= produckt.name %></h4>
-                            <p><%= produckt.description %></p>
+                            <div class="tile-top">
+                                <div class="img-contaienr">
+                                    <img src="/img/products/placeholder.svg" width="100%" alt="placeholder">
+                                    <!-- <img src="<%= produckt.img_path %>"alt="<%= produckt.name %>"> -->
+                                </div>
+                                <div class="fav-button">
+                                    <div><button onclick="window.location.href='/#';"><i class="fa-regular fa-heart"></i></button></div>
+                                </div>
+                            </div>
+                            <div class="tile-content">
+                                <h3><%= produckt.name %></h3>
+                                <ul>
+                                    <% for (const [name, spec] of Object.entries(produckt.specs)) { %>
+                                        <li title="<%= name %>"><%= spec  %></li>
+                                    <% } %>
+                                </ul>
+                            </div>
                         </div>
-                        <div>
-                            <p><%= produckt.price_netto %>€</p>
+                        <div class="price">
+                            <h2><%= produckt.price_netto %>€</h2>
                         </div>
                     </div>
                 <% } %>

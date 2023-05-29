@@ -1,0 +1,10 @@
+.wrapper {
+  position: relative;
+}
+.wrapper .heading {
+  width: 100%;
+}
+.wrapper .heading h1 {
+  text-align: end;
+  margin-bottom: 3rem;
+}

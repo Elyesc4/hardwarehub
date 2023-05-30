@@ -49,6 +49,7 @@ app.get('/', (req: Request, res: Response) => {
         LEFT JOIN product_imgs pim ON p.id = pim.product_id AND pim.img_oder = 0
         ORDER BY p.id;`
     ).then((produckts) => {
+        
         res.render('index', {
             styles: 'index',
             title: 'Hub Start',

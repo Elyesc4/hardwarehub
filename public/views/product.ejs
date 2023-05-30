@@ -1,13 +1,58 @@
 <div class="container-fluid h-100">
-    <div class="container h-100 d-flex wrapper">
+    <div class="container h-100 d-flex flex-column wrapper">
         <div class="heading">
-            <h1><%= product.name %></h1>
+            <div><button onclick="window.location.href='/#';"><i class="fa-solid fa-arrow-left"></i></button></div>
+            <div class="col-5">
+                <h1><%= product.name %></h1>
+            </div>
         </div>
         <div class="d-flex flex-column">
-            <div class="d-flex">
+            <div class="d-flex justify-content-between gap-3">
+                <div class="gallery d-flex flex-column w-50">
+                    <div class="carousel d-flex align-items-center">
+                        <div class="carousel-contaienr">
+                            <img src="/img/products/placeholder.svg" width="100%" alt="placeholder">
+                            <!-- <img src="<%= produckt.img_path %>"alt="<%= produckt.name %>"> -->
+                        </div>
+                        <div class="carousel-contaienr">
+                            <img src="/img/products/placeholder.svg" width="100%" alt="placeholder" style="transform: rotate(90deg);">
+                            <!-- <img src="<%= produckt.img_path %>"alt="<%= produckt.name %>"> -->
+                        </div>
+                        <div class="carousel-contaienr">
+                            <img src="/img/products/placeholder.svg" width="100%" alt="placeholder" style="transform: rotate(180deg);">
+                            <!-- <img src="<%= produckt.img_path %>"alt="<%= produckt.name %>"> -->
+                        </div>
+                        <div class="carousel-contaienr">
+                            <img src="/img/products/placeholder.svg" width="100%" alt="placeholder" style="transform: rotate(270deg);">
+                            <!-- <img src="<%= produckt.img_path %>"alt="<%= produckt.name %>"> -->
+                        </div>
+                        <div class="carousel-contaienr">
+                            <img src="/img/products/placeholder.svg" width="100%" alt="placeholder" style="transform: rotate(90deg);">
+                            <!-- <img src="<%= produckt.img_path %>"alt="<%= produckt.name %>"> -->
+                        </div>
+                    </div>
+                    <div class="dots col-6 d-flex justify-content-center gap-2">
+                        <i class="fa-solid fa-circle"></i>
+                        <i class="fa-regular fa-circle"></i>
+                        <i class="fa-regular fa-circle"></i>
+                        <i class="fa-regular fa-circle"></i>
+                        <i class="fa-regular fa-circle"></i>
+                    </div>
+                </div>
                 
+                <div class="col-5 tile d-flex flex-column justify-content-between gap-3">
+                    <div class="price d-flex justify-content-end">
+                        <h2><%= product.price_netto %>€</h2>
+                    </div>
+                    <form action="#" class="form-group d-flex gap-3">
+                        <button type="submit" class="form-control btn btn-primary"><i class="fa-solid fa-cash-register"></i> Jetzt Kaufen</button>
+                        <button type="submit" class="form-control btn btn-secondary"><i class="fa-solid fa-bag-shopping"></i> In den Warenkorb</button>
+                    </form>
+                </div>
             </div>
-            <div></div>
+            <div>
+
+            </div>
         </div>
     </div>
 </div>

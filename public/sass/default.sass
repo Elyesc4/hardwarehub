@@ -67,6 +67,26 @@ button
             -webkit-background-clip: text
             -webkit-text-fill-color: transparent
 
+.form-group
+  .form-control
+    color: $text
+    border-radius: 15px
+    background: transparent
+    border: none
+    &[type="button"], &[type="submit"]
+      background-color: $primary
+      border: none
+      &:hover, &:active, &:focus-visible, &:focus
+        color: #fff
+        border: none
+        background-color: darken($primary, 5%)
+        box-shadow: none
+    &:hover, &:active, &:focus-visible, &:focus
+      color: $primary
+      box-shadow: none
+      border: none
+
+
 .tile, .tile-horizontal
     padding: .8rem
     z-index: 2

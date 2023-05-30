@@ -69,6 +69,28 @@ button:hover i[class^=fa-] {
   -webkit-text-fill-color: transparent;
 }
 
+.form-group .form-control {
+  color: #ECEDFF;
+  border-radius: 15px;
+  background: transparent;
+  border: none;
+}
+.form-group .form-control[type=button], .form-group .form-control[type=submit] {
+  background-color: #683de5;
+  border: none;
+}
+.form-group .form-control[type=button]:hover, .form-group .form-control[type=button]:active, .form-group .form-control[type=button]:focus-visible, .form-group .form-control[type=button]:focus, .form-group .form-control[type=submit]:hover, .form-group .form-control[type=submit]:active, .form-group .form-control[type=submit]:focus-visible, .form-group .form-control[type=submit]:focus {
+  color: #fff;
+  border: none;
+  background-color: #5627e2;
+  box-shadow: none;
+}
+.form-group .form-control:hover, .form-group .form-control:active, .form-group .form-control:focus-visible, .form-group .form-control:focus {
+  color: #683de5;
+  box-shadow: none;
+  border: none;
+}
+
 .tile, .tile-horizontal {
   padding: 0.8rem;
   z-index: 2;

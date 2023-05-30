@@ -25,7 +25,8 @@
                             <div class="tile-content">
                                 <h3><%= produckt.name %></h3>
                                 <ul>
-                                    <% for (const [name, spec] of Object.entries(JSON.parse(produckt.specs))) { %>
+                                    <!-- <% //for (const [name, spec] of Object.entries(JSON.parse(produckt.specs))) { %> -->
+                                    <% for (const [name, spec] of Object.entries(produckt.specs)) { %>
                                         <li title="<%= name %>"><%= spec  %></li>
                                     <% } %>
                                 </ul>

@@ -9,6 +9,7 @@ class Database {
 
     exQuery = async (sql: String) => {
         const conn = await this.getConn()
+        //todo implement type safety
 
         try {
             const result = await conn.query(sql, [2])

@@ -40,6 +40,7 @@ app.set('view engine', 'ejs');
 const db: Database = new Database();
 
 const user = 1;
+const cart: Array<any> = [];
 
 app.get('/', (req: Request, res: Response) => {
 
@@ -65,7 +66,7 @@ app.get('/cart', (req: Request, res: Response) => {
         FROM products p
         JOIN order_products op ON p.id = op.product_id
         JOIN orders o ON op.order_id = o.id
-        WHERE o.customer_id = 1
+        WHERE o.customer_id = ${user}
         AND o.status_id = 'inCart';`
     ).then((inCart) => {
         res.render('cart', {
@@ -82,7 +83,6 @@ app.get('/product/:id', (req: Request, res: Response) => {
     db.exQuery(
         `SELECT * FROM products WHERE id = ${id}`
     ).then((product) => {
-        console.log(product[0]);
         
         res.render('product', {
             styles: 'product',
@@ -90,6 +90,13 @@ app.get('/product/:id', (req: Request, res: Response) => {
             product: product.length === 1 ? product[0] : product,
         });     
     })
+});
+
+app.post('/addToCart/:id', (req: Request, res: Response) => {
+    let id = req.params.id
+    
+    cart.push(id);
+    res.redirect(`/product/${id}`)
 });
 
 app.listen(port, () => {

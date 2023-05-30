@@ -12,23 +12,19 @@
                     <div class="carousel d-flex align-items-center">
                         <div class="carousel-contaienr">
                             <img src="/img/products/placeholder.svg" width="100%" alt="placeholder">
-                            <!-- <img src="<%= produckt.img_path %>"alt="<%= produckt.name %>"> -->
+   
                         </div>
                         <div class="carousel-contaienr">
                             <img src="/img/products/placeholder.svg" width="100%" alt="placeholder" style="transform: rotate(90deg);">
-                            <!-- <img src="<%= produckt.img_path %>"alt="<%= produckt.name %>"> -->
                         </div>
                         <div class="carousel-contaienr">
                             <img src="/img/products/placeholder.svg" width="100%" alt="placeholder" style="transform: rotate(180deg);">
-                            <!-- <img src="<%= produckt.img_path %>"alt="<%= produckt.name %>"> -->
                         </div>
                         <div class="carousel-contaienr">
                             <img src="/img/products/placeholder.svg" width="100%" alt="placeholder" style="transform: rotate(270deg);">
-                            <!-- <img src="<%= produckt.img_path %>"alt="<%= produckt.name %>"> -->
                         </div>
                         <div class="carousel-contaienr">
                             <img src="/img/products/placeholder.svg" width="100%" alt="placeholder" style="transform: rotate(90deg);">
-                            <!-- <img src="<%= produckt.img_path %>"alt="<%= produckt.name %>"> -->
                         </div>
                     </div>
                     <div class="dots col-6 d-flex justify-content-center gap-2">
@@ -40,11 +36,44 @@
                     </div>
                 </div>
                 
-                <div class="col-5 tile d-flex flex-column justify-content-between gap-3">
-                    <div class="price d-flex justify-content-end">
-                        <h2><%= product.price_netto %>€</h2>
+                <div class="col-5 d-flex flex-column justify-content-between gap-3">
+                    <div class="tile d-flex flex-column justify-content-between gap-3">
+                        <div class="price d-flex justify-content-end">
+                            <h2><%= product.price_netto %>€</h2>
+                        </div>
+                        <hr />
+                        <div class="d-flex">
+                            <div class="col d-flex flex-column align-items-center">
+                                <i class="fa-solid fa-list-check"></i>
+                                <p>Details</p>
+                            </div>
+                            <div class="col d-flex flex-column align-items-center">
+                                <div>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star-half-stroke"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <p>Jetzt bewerten</p>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="d-flex justify-content-center">
+                            <p class="shipping-info">Auf Lager</p>
+                        </div>
+                        <hr />
+                        <div class="d-flex flex-column gap-3">
+                            <div class="actions form-group d-flex justify-content-evenly gap-3">
+                                <button title="Auf die Merkliste"><i class="fa-solid fa-heart"></i></button>
+                                <button title="Informiere mich"><i class="fa-solid fa-bell"></i></button>
+                                <button title="Vergleichen"><i class="fa-solid fa-right-left"></i></button>
+                                <button title="Teilen"><i class="fa-solid fa-share"></i></button>
+                            </div>
+                        </div>
                     </div>
-                    <form action="#" class="form-group d-flex gap-3">
+                    
+                    <form action="/addToCart/<%= product.id %>" method="post" class="form-group d-flex gap-3">
                         <button type="submit" class="form-control btn btn-primary"><i class="fa-solid fa-cash-register"></i> Jetzt Kaufen</button>
                         <button type="submit" class="form-control btn btn-secondary"><i class="fa-solid fa-bag-shopping"></i> In den Warenkorb</button>
                     </form>

@@ -74,13 +74,16 @@ button
     background: transparent
     border: none
     &[type="button"], &[type="submit"]
-      background-color: $primary
       border: none
       &:hover, &:active, &:focus-visible, &:focus
         color: #fff
         border: none
         background-color: darken($primary, 5%)
         box-shadow: none
+    &.btn-primary
+      background-color: $primary
+    &.btn-secondary
+      background-color: $secondary
     &:hover, &:active, &:focus-visible, &:focus
       color: $primary
       box-shadow: none

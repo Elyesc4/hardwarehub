@@ -66,6 +66,7 @@ app.get('/', (req: Request, res: Response) => {
         res.render('index', {
             styles: 'index',
             title: 'Hub Start',
+            action: 'start',
             produckts: produckts
         });        
     })
@@ -74,17 +75,19 @@ app.get('/', (req: Request, res: Response) => {
 app.get('/cart', (req: Request, res: Response) => {
     
     db.exQuery(
-        `SELECT p.*
+        `SELECT p.*, op.pieces
         FROM products p
         JOIN order_products op ON p.id = op.product_id
         JOIN orders o ON op.order_id = o.id
         WHERE o.customer_id = ${user}
         AND o.status_id = 'inCart';`
     ).then((inCart) => {
+        console.log(inCart)
 
         res.render('cart', {
             styles: 'cart',
             title: 'Hub Cart',
+            action: 'cart',
             inCart: inCart,
             cartPrice: calcCartPrice(inCart)
         });
@@ -101,6 +104,7 @@ app.get('/product/:id', (req: Request, res: Response) => {
         res.render('product', {
             styles: 'product',
             title: 'Hub Product',
+            action: 'product',
             product: product.length === 1 ? product[0] : product,
         });     
     }, (err) => {
@@ -117,7 +121,7 @@ app.post('/addToCart/:id', (req: Request, res: Response) => {
     let id = req.params.id
 
     db.exQuery(
-        `CALL \`add_product_to_cart\`(${id}, ${user})`
+        `CALL add_product_to_cart(${id}, ${user})`
     ).then((product) => {
         res.redirect(`/product/${id}`)
     })

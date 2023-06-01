@@ -4,25 +4,25 @@
 .wrapper .heading h1 {
   margin-bottom: 3rem;
 }
-.wrapper .content .item-list {
-  position: relative;
-}
 .wrapper .content .item-list .tile-horizontal {
   max-height: 230px;
+  position: relative;
+  overflow: initial;
 }
 .wrapper .content .item-list .tile-horizontal:not(:last-child) {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
-.wrapper .content .item-list .tile-horizontal img {
-  height: 100%;
-}
-.wrapper .content .item-list .tile-content {
-  position: relative;
-}
-.wrapper .content .item-list .tile-content .context-actions {
+.wrapper .content .item-list .tile-horizontal .context-actions {
   position: absolute;
   top: 0;
   right: 0;
+}
+.wrapper .content .item-list .product-count input[type=number] {
+  all: unset;
+  width: 50px;
+}
+.wrapper .content .item-list .tile-content {
+  position: relative;
 }
 .wrapper .content .item-list .tile-content h3 {
   font-size: 1.5em;

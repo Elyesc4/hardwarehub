@@ -7,21 +7,28 @@
 
   .content
     .item-list
-      position: relative
+      //position: relative
+
       .tile-horizontal
         max-height: 230px
-        &:not(:last-child)
-          margin-bottom: 1rem
-        img
-          height: 100%
-
-      .tile-content
         position: relative
+        overflow: initial
+
+        &:not(:last-child)
+          margin-bottom: 2rem
 
         .context-actions
           position: absolute
           top: 0
           right: 0
+
+      .product-count
+        input[type="number"]
+          all: unset
+          width: 50px
+
+      .tile-content
+        position: relative
 
         h3
           font-size: 1.5em

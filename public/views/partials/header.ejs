@@ -1,7 +1,11 @@
 <div class="container py-5"> 
     <nav class="d-flex justify-content-between align-items-center">
         <div class="col-2 d-flex control">
-            <div><button onclick="window.location.href='/';"><img src="/img/Hub_Logo.svg" alt="Logo" height="32px"></button></div>
+            <div><button onclick="window.location.href='/';">
+                    <img class="<%= action === 'start' ? 'd-block' : 'd-none' %>" src="/img/Hub_Logo.svg" alt="Logo" height="32px">
+                    <img class="<%= action === 'start' ? 'd-none' : 'd-block' %>" src="/img/Hub_Logo_white.svg" alt="Logo" height="32px">
+                </button></div>
+
             <div><button><i class="fa-solid fa-bars"></i></button></div>
         </div>
         <div class="col-5 justify-" id="search">

@@ -10,13 +10,19 @@ class Database {
     exQuery = async (sql: String) => {
         const conn = await this.getConn()
         //todo implement type safety
+        let result
 
         try {
-            const result = await conn.query(sql, [2])
-            return result;
+            result = await conn.query(sql, [2]);
+        } catch (err) {
+            return new Promise<any>((resolve, reject) => {
+                reject(err)
+            })
         } finally {
-            conn.end();
+            await conn.end();
         }
+
+        return result
     }
 
     getConn = async () => {

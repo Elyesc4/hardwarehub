@@ -6,7 +6,7 @@
 html,
 body {
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
   font-family: "Roboto Mono", monospace;
@@ -52,22 +52,8 @@ header .control div:not(:last-child) {
   margin-right: 0.8rem;
 }
 
-footer {
-  z-index: 20;
-  background: linear-gradient(95deg, #11E5B3 0.65%, #683DE5 102%);
-  font-size: 0.8rem;
-}
-footer .pay_types {
-  font-size: 1.5rem;
-}
-
 button {
   all: unset;
-}
-button:hover i[class^=fa-] {
-  background: linear-gradient(95deg, #11E5B3 0.65%, #683DE5 102%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .form-group .form-control {
@@ -82,17 +68,21 @@ button:hover i[class^=fa-] {
 .form-group .form-control[type=button]:hover, .form-group .form-control[type=button]:active, .form-group .form-control[type=button]:focus-visible, .form-group .form-control[type=button]:focus, .form-group .form-control[type=submit]:hover, .form-group .form-control[type=submit]:active, .form-group .form-control[type=submit]:focus-visible, .form-group .form-control[type=submit]:focus {
   color: #fff;
   border: none;
-  background-color: #5627e2;
-  box-shadow: none;
 }
 .form-group .form-control.btn-primary {
-  background-color: #683de5;
+  background: linear-gradient(95deg, #11E5B3 0.65%, #683DE5 102%);
+}
+.form-group .form-control.btn-primary:hover {
+  box-shadow: -110px 12px 200px 12px #11e5b3, 110px 12px 200px 12px #683de5;
 }
 .form-group .form-control.btn-secondary {
-  background-color: #11e5b3;
+  background-color: #683de5;
+}
+.form-group .form-control.btn-secondary:hover {
+  box-shadow: -110px 12px 200px 12px #683de5, 110px 12px 200px 12px #683de5;
 }
 .form-group .form-control:hover, .form-group .form-control:active, .form-group .form-control:focus-visible, .form-group .form-control:focus {
-  color: #683de5;
+  color: #11e5b3;
   box-shadow: none;
   border: none;
 }
@@ -103,7 +93,7 @@ button:hover i[class^=fa-] {
   overflow: hidden;
   border-radius: 15px;
   background-color: rgba(236, 237, 255, 0.062745098);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2509803922);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2509803922);
 }
 
 #search {
@@ -138,3 +128,14 @@ button:hover i[class^=fa-] {
   padding: 0;
   margin: 0;
 }
+
+footer {
+  z-index: 20;
+  background: linear-gradient(95deg, #11E5B3 0.65%, #683DE5 102%);
+  font-size: 0.8rem;
+}
+footer .pay_types {
+  font-size: 1.5rem;
+}
+
+/*# sourceMappingURL=default.css.map */

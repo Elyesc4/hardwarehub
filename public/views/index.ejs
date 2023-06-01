@@ -11,10 +11,10 @@
 
                 <% for( let i = 0; i < produckts.length; i++ ) { %>
                     <% produckt = produckts[i] %>
-                    <div class="tile tile-<%= i %> d-flex flex-column justify-content-between" data-active="<%= i === 1 ? 'true' : 'false'  %>" data-id="<%= produckt.id %>">
+                    <div class="tile tile-<%= i %> d-flex flex-column justify-content-between" aria-label="product" data-active="<%= i === 1 ? 'true' : 'false'  %>" data-id="<%= produckt.id %>">
                         <div>
                             <div class="tile-top">
-                                <div class="img-contaienr">
+                                <div class="img-container">
                                     <img src="/img/products/placeholder.svg" width="100%" alt="placeholder">
                                     <!-- <img src="<%= produckt.img_path %>"alt="<%= produckt.name %>"> -->
                                 </div>
@@ -25,8 +25,8 @@
                             <div class="tile-content">
                                 <h3><%= produckt.name %></h3>
                                 <ul>
-                                    <!-- <% //for (const [name, spec] of Object.entries(JSON.parse(produckt.specs))) { %> -->
-                                    <% for (const [name, spec] of Object.entries(produckt.specs)) { %>
+                                    <% for (const [name, spec] of Object.entries(JSON.parse(produckt.specs))) { %>
+                                    <!-- <% //for (const [name, spec] of Object.entries(produckt.specs)) { %> -->
                                         <li title="<%= name %>"><%= spec  %></li>
                                     <% } %>
                                 </ul>

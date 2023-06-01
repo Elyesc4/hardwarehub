@@ -1,32 +1,32 @@
 .wrapper
-    position: relative
-    .heading
-        h1
-            margin-bottom: 3rem
-    .content
+  position: relative
+
+  .heading
+    h1
+      margin-bottom: 3rem
+
+  .content
+    .item-list
+      position: relative
+      .tile-horizontal
+        max-height: 230px
+        &:not(:last-child)
+          margin-bottom: 1rem
+        img
+          height: 100%
+
+      .tile-content
         position: relative
-        .item-list
-            height: 595px
-            overflow-y: scroll
-            .tile-horizontal
-                width: 100%
-                height: 250px
-                &:not(:last-child)
-                    margin-bottom: 1rem
-            .tile-content
-                position: relative
-                .context-actions
-                    position: absolute
-                    top: 0
-                    right: 0
-                img
-                    // border: 1px solid red
-                    height: 100%
-                h3
-                    font-size: 1.5em
-                .price
-                    width: 100%
-                    display: flex
-                    justify-content: end
-        
-        
+
+        .context-actions
+          position: absolute
+          top: 0
+          right: 0
+
+        h3
+          font-size: 1.5em
+
+        .price
+          width: 100%
+          display: flex
+          justify-content: end

@@ -1,7 +1,7 @@
 <div class="container-fluid h-100">
     <div class="container h-100 d-flex flex-column wrapper">
         <div class="heading">
-            <div><button onclick="window.location.href='/#';"><i class="fa-solid fa-arrow-left"></i></button></div>
+            <div><button onclick="window.location.href='/';"><i class="fa-solid fa-arrow-left"></i></button></div>
             <div class="col-5">
                 <h1><%= product.name %></h1>
             </div>
@@ -12,7 +12,6 @@
                     <div class="carousel d-flex align-items-center">
                         <div class="carousel-contaienr">
                             <img src="/img/products/placeholder.svg" width="100%" alt="placeholder">
-   
                         </div>
                         <div class="carousel-contaienr">
                             <img src="/img/products/placeholder.svg" width="100%" alt="placeholder" style="transform: rotate(90deg);">
@@ -74,7 +73,7 @@
                     </div>
                     
                     <form action="/addToCart/<%= product.id %>" method="post" class="form-group d-flex gap-3">
-                        <button type="submit" class="form-control btn btn-primary"><i class="fa-solid fa-cash-register"></i> Jetzt Kaufen</button>
+                        <button type="submit" formaction="/checkout/<%= product.id %>" class="form-control btn btn-primary"><i class="fa-solid fa-cash-register"></i> Jetzt Kaufen</button>
                         <button type="submit" class="form-control btn btn-secondary"><i class="fa-solid fa-bag-shopping"></i> In den Warenkorb</button>
                     </form>
                 </div>

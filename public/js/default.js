@@ -1,8 +1,10 @@
-let tiles = document.querySelectorAll('.tile')
+let tiles = document.querySelectorAll('[aria-label="product"]')
 
 tiles.forEach((element) => {
     element.addEventListener('click', (event) => {
         event.preventDefault();
-        window.location.href=`/product/${element.dataset.id}`
+        if ( element.dataset.id ) {
+          window.location.href=`/product/${element.dataset.id}`
+        }
     })
 })

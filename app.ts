@@ -1,10 +1,14 @@
 import express, { Request, Response, Application } from 'express';
 import expressLayouts from 'express-ejs-layouts';
-import fs from 'fs';
 import formData from 'express-form-data';
-import Database from './classes/database';
-// import Customer from './models/customer';
 import path from 'path';
+import fs from 'fs';
+// const express = require('express');
+// const expressLayouts = require('express-ejs-layouts');
+// const formData = require('express-form-data');
+// const path = require('path');
+import Customer from './models/customer';
+import Database from './classes/database';
 
 require('dotenv').config();
 
@@ -42,6 +46,14 @@ const db: Database = new Database();
 const user = 1;
 const cart: Array<any> = [];
 
+const calcCartPrice = (inCart) :number => {
+    let cartPrice = 0
+    inCart.forEach((item) => {
+        cartPrice += parseFloat(item.price_netto)
+    })
+    return Number(cartPrice.toFixed(2))
+}
+
 app.get('/', (req: Request, res: Response) => {
 
     db.exQuery(
@@ -69,10 +81,12 @@ app.get('/cart', (req: Request, res: Response) => {
         WHERE o.customer_id = ${user}
         AND o.status_id = 'inCart';`
     ).then((inCart) => {
+
         res.render('cart', {
             styles: 'cart',
             title: 'Hub Cart',
-            inCart: inCart
+            inCart: inCart,
+            cartPrice: calcCartPrice(inCart)
         });
     })
 });
@@ -89,14 +103,24 @@ app.get('/product/:id', (req: Request, res: Response) => {
             title: 'Hub Product',
             product: product.length === 1 ? product[0] : product,
         });     
-    })
+    }, (err) => {
+        console.log(err)
+        res.redirect('/')
+    } )
+});
+
+app.post('/checkout/:id', (req: Request, res: Response) => {
+    res.redirect('/cart')
 });
 
 app.post('/addToCart/:id', (req: Request, res: Response) => {
     let id = req.params.id
-    
-    cart.push(id);
-    res.redirect(`/product/${id}`)
+
+    db.exQuery(
+        `CALL \`add_product_to_cart\`(${id}, ${user})`
+    ).then((product) => {
+        res.redirect(`/product/${id}`)
+    })
 });
 
 app.listen(port, () => {

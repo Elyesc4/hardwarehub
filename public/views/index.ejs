@@ -1,8 +1,43 @@
-<div class="container-fluid">
-    <div class="d-flex flex-column justify-content-center align-items-center">
-        <h1>Hello you</h1>
-        <h2>Welcome to</h2>
-        <hr>
-        <h1>Hardware Hub</h1>
+<div class="container-fluid h-100">
+    <div class="container h-100 d-flex wrapper">
+        <div class="heading">
+            <h1>
+                Deine Top Auswahl <br />
+                An Angeboten
+            </h1>
+        </div>
+        <div class="carousel-wrapper">
+            <div id="carousel">
+
+                <% for( let i = 0; i < produckts.length; i++ ) { %>
+                    <% produckt = produckts[i] %>
+                    <div class="tile tile-<%= i %> d-flex flex-column justify-content-between" aria-label="product" data-active="<%= i === 1 ? 'true' : 'false'  %>" data-id="<%= produckt.id %>">
+                        <div>
+                            <div class="tile-top">
+                                <div class="img-container">
+                                    <img src="/img/products/placeholder.svg" width="100%" alt="placeholder">
+                                    <!-- <img src="<%= produckt.img_path %>"alt="<%= produckt.name %>"> -->
+                                </div>
+                                <div class="fav-button">
+                                    <div><button onclick="window.location.href='/#';"><i class="fa-regular fa-heart"></i></button></div>
+                                </div>
+                            </div>
+                            <div class="tile-content">
+                                <h3><%= produckt.name %></h3>
+                                <ul>
+                                    <% for (const [name, spec] of Object.entries(JSON.parse(produckt.specs))) { %>
+                                    <!-- <% //for (const [name, spec] of Object.entries(produckt.specs)) { %> -->
+                                        <li title="<%= name %>"><%= spec  %></li>
+                                    <% } %>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <h2><%= produckt.price_netto %>€</h2>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
     </div>
 </div>

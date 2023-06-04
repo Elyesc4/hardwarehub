@@ -1,20 +1,24 @@
 <div class="container py-5"> 
-    <div class="d-flex justify-content-between align-items-center">
+    <nav class="d-flex justify-content-between align-items-center">
         <div class="col-2 d-flex control">
-            <div><img src="img/Hub_Logo.svg" alt="Logo" height="32px"></div>
-            <div><i class="fa-solid fa-bars"></i></div>
+            <div><button onclick="window.location.href='/';">
+                    <img class="<%= action === 'start' ? 'd-block' : 'd-none' %>" src="/img/Hub_Logo.svg" alt="Logo" height="32px">
+                    <img class="<%= action === 'start' ? 'd-none' : 'd-block' %>" src="/img/Hub_Logo_white.svg" alt="Logo" height="32px">
+                </button></div>
+
+            <div><button><i class="fa-solid fa-bars"></i></button></div>
         </div>
         <div class="col-5 justify-" id="search">
             <div class="d-flex align-items-center justify-content-between">
-                <div><input type="search" name="search" id="search_input" placeholder="Search"></div>
-                <div><i class="fa-solid fa-magnifying-glass"></i></div>
+                <input type="search" name="search" id="search_input" placeholder="Search">
+                <i class="fa-solid fa-magnifying-glass"></i>
             </div>
             <hr>
         </div>
         <div class="col-2 control d-flex align-items-center justify-content-end">
-            <div><i class="fa-solid fa-heart"></i></div>
-            <div><i class="fa-solid fa-bell"></i></div>
-            <div><i class="fa-solid fa-bag-shopping"></i></div>
+            <div><button><i class="fa-solid fa-heart"></i></button></div>
+            <div><button><i class="fa-solid fa-bell"></i></button></div>
+            <div><button onclick="window.location.href='/cart';"><i class="fa-solid fa-bag-shopping"></i></button></div>
         </div>
-    </div>
+    </nav>
 </div>

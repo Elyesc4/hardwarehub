@@ -1,57 +1,144 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400;700&display=swap')
 
 *
-    box-sizing: border-box
+  box-sizing: border-box
 
 $white: #ECEDFF
-$primary: #683de5
-$secondary: #11e5b3
+$primary: #11e5b3
+$secondary: #683de5
 $bg: #101010
 $text: $white
 $gradient: linear-gradient(95deg, #11E5B3 0.65%, #683DE5 102%)
 
 html,
 body
-    height: 100vh
-    margin: 0
-    padding: 0
-    font-family: 'Roboto Mono', monospace
-    background: $bg
-    color: $text
+  height: 100vh
+  // width: 100vw
+  overflow-x: hidden
+  overflow-y: overlay
+  margin: 0
+  padding: 0
+  font-family: 'Roboto Mono', monospace
+  font-size: 16px
+  background: $bg
+  color: $text
 
 p
-    margin: 0
-    padding: 0
+  margin: 0
+  padding: 0
+
+a
+  all: unset
+
+h1, h2, h3
+  margin: 0
+  padding: 0
+
+h2, h3
+  font-weight: bold
+
+h1
+  font-size: 2.5rem
+
+h2
+  font-size: 2rem
+
+h3
+  font-size: 1rem
 
 header
-    i.fa-solid
-        font-size: 2rem
-    .control
-        div:not(:last-child)
-            margin-right: .8rem 
-            
+  .control
+    i[class^="fa-"]
+      font-size: 2rem
 
-footer
-    position: absolute
-    bottom: 0
-    width: 100vw
-    background: $gradient
+    div:not(:last-child)
+      margin-right: .8rem
+
+button
+  all: unset
+//     &:hover
+//         i[class^="fa-"]
+//             background: $gradient
+//             -webkit-background-clip: text
+//             -webkit-text-fill-color: transparent
+
+.form-group
+  .form-control
+    color: $text
+    border-radius: 15px
+    background: transparent
+    border: none
+
+    &[type="button"], &[type="submit"]
+      border: none
+
+      &:hover, &:active, &:focus-visible, &:focus
+        color: #fff
+        border: none
+
+    &.btn-primary
+      background: $gradient
+
+      &:hover
+        box-shadow: -110px 12px 200px 12px $primary, 110px 12px 200px 12px $secondary
+
+    &.btn-secondary
+      background-color: $secondary
+
+      &:hover
+        box-shadow: -110px 12px 200px 12px $secondary, 110px 12px 200px 12px $secondary
+
+    &:hover, &:active, &:focus-visible, &:focus
+      color: $primary
+      box-shadow: none
+      border: none
+
+.tile, .tile-horizontal
+  padding: .8rem
+  z-index: 2
+  overflow: hidden
+  border-radius: 15px
+  background-color: #ecedff10
+  box-shadow: 0 4px 4px #00000040
+  &[aria-label="product"]:hover
+    cursor: pointer
 
 #search
-    i.fa-solid
-        font-size: 1.2rem
-    input
-        padding: 0
-        background-color: transparent
-        border: none
-        &::placeholder
-            color: $text
-            font-style: normal
-            font-weight: 400
-            font-size: 1.1rem
-            line-height: 22px
-    hr
-        color: $white
-        opacity: 1
-        padding: 0
-        margin: 0
+  position: relative
+
+  i[class^="fa-"]
+    position: absolute
+    top: 0
+    right: 0
+    font-size: 1.2rem
+
+  input[type="search"]
+    all: unset
+
+    &::-webkit-search-decoration, &::-webkit-search-cancel-button, &::-webkit-search-results-button, &::-webkit-search-results-decoration
+      display: none
+    width: 100%
+    padding: 0
+    background-color: transparent
+    border: none
+
+    &::placeholder
+      color: $text
+      font-style: normal
+      font-weight: 400
+      font-size: 1.1rem
+      line-height: 22px
+
+  hr
+    color: $white
+    opacity: 1
+    padding: 0
+    margin: 0
+
+footer
+  z-index: 20
+  background: $gradient
+  font-size: .8rem
+
+  .pay_types
+    font-size: 1.5rem

@@ -4,6 +4,9 @@
 .wrapper .heading h1 {
   margin-bottom: 3rem;
 }
+.wrapper .content .control {
+  font-size: 1.5rem;
+}
 .wrapper .content .item-list .tile-horizontal {
   max-height: 230px;
   position: relative;
@@ -17,9 +20,60 @@
   top: 0;
   right: 0;
 }
-.wrapper .content .item-list .product-count input[type=number] {
-  all: unset;
-  width: 50px;
+.wrapper .content .item-list .quantity {
+  display: flex;
+  gap: 0.2rem;
+}
+.wrapper .content .item-list .quantity input {
+  width: 3rem;
+  aspect-ratio: 1;
+  border: none;
+  text-align: center;
+  color: #101010;
+  background: #ECEDFF;
+  border-radius: 0.5rem;
+}
+.wrapper .content .item-list .quantity input:focus {
+  outline: 0;
+}
+.wrapper .content .item-list .quantity input ~ .quantity-nav .quantity-down {
+  display: flex;
+}
+.wrapper .content .item-list .quantity input ~ .quantity-nav .quantity-delete {
+  display: none;
+}
+.wrapper .content .item-list .quantity input[value="1"] ~ .quantity-nav .quantity-down {
+  display: none;
+}
+.wrapper .content .item-list .quantity input[value="1"] ~ .quantity-nav .quantity-delete {
+  display: flex;
+}
+.wrapper .content .item-list .quantity input[type=number]::-webkit-inner-spin-button, .wrapper .content .item-list .quantity input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.wrapper .content .item-list .quantity input[type=number] {
+  -moz-appearance: textfield;
+}
+.wrapper .content .item-list .quantity-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.wrapper .content .item-list .quantity-nav .quantity-button {
+  flex-grow: 1;
+  width: 1.5rem;
+  cursor: pointer;
+  color: #101010;
+  background: #ECEDFF;
+  border-radius: 0.5rem;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper .content .item-list .quantity-nav .quantity-button.quantity-delete:hover {
+  background: #EA3546;
 }
 .wrapper .content .item-list .tile-content {
   position: relative;

@@ -1,6 +1,31 @@
 .wrapper {
   position: relative;
 }
+.wrapper .control {
+  position: absolute;
+  left: 16.75rem;
+  width: calc(410px + 1rem);
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wrapper .control i[class^=fa-] {
+  z-index: 10;
+  transition: all 150ms ease-in;
+  font-size: 5rem;
+  text-shadow: #101010 0px 0px 50px;
+}
+.wrapper .control i[class^=fa-]:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+.wrapper .control .fa-chevron-left {
+  margin-left: -1.3rem;
+}
+.wrapper .control .fa-chevron-right {
+  margin-right: -1.3rem;
+}
 .wrapper .heading {
   z-index: 4;
   position: absolute;
@@ -69,7 +94,7 @@
   height: 34rem;
   width: 410px;
   background: linear-gradient(95deg, #11E5B3 0.65%, #683DE5 102%);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2509803922), -110px 12px 200px 12px rgba(17, 229, 179, 0.8), 110px 12px 200px 12px rgba(104, 61, 229, 0.8);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2509803922), -110px 12px 200px 12px rgba(17, 229, 179, 0.8), 110px 12px 200px 12px rgba(104, 61, 229, 0.8);
 }
 .carousel-wrapper #carousel .tile[data-active=true] .tile-top .img-container {
   width: 315px;

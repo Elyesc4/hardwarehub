@@ -1,4 +1,4 @@
-import express, { Request, Response, Application } from 'express';
+import express, {Request, Response, Application} from 'express';
 import expressLayouts from 'express-ejs-layouts';
 import formData from 'express-form-data';
 import path from 'path';
@@ -46,7 +46,7 @@ const db: Database = new Database();
 const user = 1;
 const cart: Array<any> = [];
 
-const calcCartPrice = (inCart) :number => {
+const calcCartPrice = (inCart): number => {
     let cartPrice = 0
     inCart.forEach((item) => {
         cartPrice += parseFloat(item.price_netto)
@@ -62,18 +62,18 @@ app.get('/', (req: Request, res: Response) => {
         LEFT JOIN product_imgs pim ON p.id = pim.product_id AND pim.img_oder = 0
         ORDER BY p.id;`
     ).then((produckts) => {
-        
+
         res.render('index', {
             styles: 'index',
             title: 'Hub Start',
             action: 'start',
             produckts: produckts
-        });        
+        });
     })
 });
 
 app.get('/cart', (req: Request, res: Response) => {
-    
+
     db.exQuery(
         `SELECT p.*, op.pieces
         FROM products p
@@ -82,7 +82,6 @@ app.get('/cart', (req: Request, res: Response) => {
         WHERE o.customer_id = ${user}
         AND o.status_id = 'inCart';`
     ).then((inCart) => {
-        console.log(inCart)
 
         res.render('cart', {
             styles: 'cart',
@@ -96,21 +95,21 @@ app.get('/cart', (req: Request, res: Response) => {
 
 app.get('/product/:id', (req: Request, res: Response) => {
     let id = req.params.id
-    
+
     db.exQuery(
         `SELECT * FROM products WHERE id = ${id}`
     ).then((product) => {
-        
+
         res.render('product', {
             styles: 'product',
             title: 'Hub Product',
             action: 'product',
             product: product.length === 1 ? product[0] : product,
-        });     
+        });
     }, (err) => {
         console.log(err)
         res.redirect('/')
-    } )
+    })
 });
 
 app.post('/checkout/:id', (req: Request, res: Response) => {
@@ -127,6 +126,20 @@ app.post('/addToCart/:id', (req: Request, res: Response) => {
     })
 });
 
+app.post('/removeFromCart', (req: Request, res: Response) => {
+    console.log(req.body)
+    let sql
+    switch (req.body.action) {
+        case 'delete':
+            sql = ``
+            break;
+    }
+    res.send(req.body.action)
+    // db.exQuery(sql).then((result) => {
+    //     res.status(200)
+    // })
+});
+
 app.listen(port, () => {
-    console.log(`app listening on port ${port}`);
+    console.log(`app listening on port http://localhost:${port}`);
 });

@@ -47,7 +47,20 @@ h3 {
 }
 
 header .control i[class^=fa-] {
-  font-size: 2rem;
+  font-size: 2.1rem;
+  aspect-ratio: 1/1;
+}
+header .control .svg-btn img:first-child {
+  display: none;
+}
+header .control .svg-btn img:last-child {
+  display: block;
+}
+header .control .svg-btn:hover img:first-child, header .control .svg-btn[data-active=true] img:first-child {
+  display: block;
+}
+header .control .svg-btn:hover img:last-child, header .control .svg-btn[data-active=true] img:last-child {
+  display: none;
 }
 header .control div:not(:last-child) {
   margin-right: 0.8rem;
@@ -57,11 +70,18 @@ button {
   all: unset;
 }
 
+.nav-ico:hover, .nav-ico[data-active=true] {
+  background: linear-gradient(95deg, #11E5B3 0.65%, #683DE5 102%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .form-group .form-control {
   color: #ECEDFF;
   border-radius: 15px;
   background: transparent;
   border: none;
+  transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .form-group .form-control[type=button], .form-group .form-control[type=submit] {
   border: none;
@@ -91,7 +111,6 @@ button {
 .tile, .tile-horizontal {
   padding: 0.8rem;
   z-index: 2;
-  overflow: hidden;
   border-radius: 15px;
   background-color: rgba(236, 237, 255, 0.062745098);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2509803922);
@@ -111,8 +130,8 @@ button {
 }
 #search input[type=search] {
   all: unset;
+  padding-right: 1.4rem;
   width: 100%;
-  padding: 0;
   background-color: transparent;
   border: none;
 }

@@ -1,3 +1,10 @@
+$white: #ECEDFF
+$primary: #11e5b3
+$secondary: #683de5
+$bg: #101010
+$text: $white
+$gradient: linear-gradient(95deg, #11E5B3 0.65%, #683DE5 102%)
+
 .wrapper
   position: relative
 
@@ -6,6 +13,9 @@
       margin-bottom: 3rem
 
   .content
+    .control
+      font-size: 1.5rem
+
     .item-list
       //position: relative
 
@@ -22,10 +32,61 @@
           top: 0
           right: 0
 
-      .product-count
-        input[type="number"]
-          all: unset
-          width: 50px
+      .quantity
+        $width: 3rem
+        $gap: .2rem
+        display: flex
+        gap: .2rem
+
+        input
+          width: 3rem
+          aspect-ratio: 1
+          border: none
+          text-align: center
+          color: $bg
+          background: $white
+          border-radius: .5rem
+
+          &:focus
+            outline: 0
+
+          & ~ .quantity-nav .quantity-down
+            display: flex
+          & ~ .quantity-nav .quantity-delete
+            display: none
+
+        input[value="1"]
+          & ~ .quantity-nav .quantity-down
+            display: none
+          & ~ .quantity-nav .quantity-delete
+            display: flex
+
+
+        input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button
+          -webkit-appearance: none
+          margin: 0
+
+        input[type=number]
+          -moz-appearance: textfield
+
+        &-nav
+          display: flex
+          flex-direction: column
+          gap: .2rem
+
+          .quantity-button
+            flex-grow: 1
+            width: calc(3rem / 2)
+            cursor: pointer
+            color: $bg
+            background: $white
+            border-radius: .5rem
+            user-select: none
+            display: flex
+            justify-content: center
+            align-items: center
+            &.quantity-delete:hover
+              background: #EA3546
 
       .tile-content
         position: relative

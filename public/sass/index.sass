@@ -6,8 +6,36 @@ $text: $white
 $gradient: linear-gradient(95deg, #11E5B3 0.65%, #683DE5 102%)
 // todo remove vars
 
+$tile-h: 20rem
+$tile-w: 16.25rem
+$tile-a-h: 34rem
+$tile-a-w: 410px
+$tile-gap: 1rem
+
 .wrapper
   position: relative
+
+  .control
+    position: absolute
+    left: calc($tile-w + ($tile-gap / 2))
+    width: calc($tile-a-w + $tile-gap)
+    height: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    //border: 1px solid red
+    i[class^="fa-"]
+      z-index: 10
+      transition: all 150ms ease-in
+      font-size: 5rem
+      text-shadow: #101010 0px 0px 50px
+      &:hover
+        cursor: pointer
+        transform: scale(1.2)
+    .fa-chevron-left
+      margin-left: -1.3rem
+    .fa-chevron-right
+      margin-right: -1.3rem
 
   .heading
     z-index: 4
@@ -28,11 +56,11 @@ $gradient: linear-gradient(95deg, #11E5B3 0.65%, #683DE5 102%)
     height: 100%
     display: flex
     align-items: center
-    gap: 1rem
+    gap: $tile-gap
 
     .tile
-      height: 20rem
-      width: 16.25rem
+      height: $tile-h
+      width: $tile-w
       overflow: hidden
       transition: 140ms ease-in-out
       &:hover
@@ -93,10 +121,10 @@ $gradient: linear-gradient(95deg, #11E5B3 0.65%, #683DE5 102%)
       padding: 1rem
       font-size: 1.5rem
       z-index: 1
-      height: 34rem
-      width: 410px
+      height: $tile-a-h
+      width: $tile-a-w
       background: $gradient
-      box-shadow: 0px 4px 4px #00000040, -110px 12px 200px 12px #11e5b3cc, 110px 12px 200px 12px #683de5cc
+      box-shadow: 0 4px 4px #00000040, -110px 12px 200px 12px #11e5b3cc, 110px 12px 200px 12px #683de5cc
 
       .tile-top
         .img-container
@@ -122,7 +150,7 @@ $gradient: linear-gradient(95deg, #11E5B3 0.65%, #683DE5 102%)
     z-index: 3
     height: 100%
     width: 4%
-    background: linear-gradient(90deg, rgba(16, 16, 16, 0) 0%, #101010 100%)
+    background: linear-gradient(90deg, rgba(16, 16, 16, 0) 0%, $bg 100%)
 
   &::after
     content: ''

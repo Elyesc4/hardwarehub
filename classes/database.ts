@@ -1,59 +1,25 @@
-require('dotenv').config();
-const mariadb = require('mariadb');
 
-class Database {
+import mysql from 'mysql';
+class DB {
 
+    connection
     constructor() {
+        this.connection = mysql.createConnection({
+            host: 'localhost', //todo @ebr make .env
+            user: 'your_mysql_username', //todo @ebr make .env
+            password: 'your_mysql_password', //todo @ebr make .env
+            database: 'your_database_name' //todo @ebr make .env
+        });
 
-    }
-
-    exQuery = async (sql: String) => {
-        const conn = await this.getConn()
-        //todo implement type safety
-        let result
-
-        try {
-            result = await conn.query(sql, [2]);
-        } catch (err) {
-            return new Promise<any>((resolve, reject) => {
-                reject(err)
-            })
-        } finally {
-            await conn.end();
-        }
-
-        return result
-    }
-
-    getConn = async () => {
-
-        return mariadb.createConnection({
-            host: process.env.DB_HOST,
-            user: process.env.DB_USER,
-            password: process.env.DB_PWD,
-            database: process.env.DB,
-            port: process.env.DB_PORT
+        this.connection.connect((err) => {
+            if (err) {
+                console.error('Error connecting to the database: ', err);
+                return;
+            }
+            console.log('Connected to the database');
         });
     }
 
-    getAll = async (table: String) => {
-        let sql = `SELECT * FROM ${table};`;
-        return this.exQuery(sql)
-    }
-
-    getWehre = async (table: String, where: String, cols: Array<String> | String = '*') => {
-        let col_string = Array.isArray(cols) ? '`' + cols.join('`, `') + '`' : cols;
-        let sql = `SELECT ${col_string} FROM ${table} WHERE ${where};`;
-
-        return await this.exQuery(sql);
-    }
-
-    count = async (table: String) => {
-        let sql = `SELECT COUNT(*) FROM ${table};`;
-        let result = await this.exQuery(sql);
-        
-        return parseInt(result[0]['COUNT(*)']);
-    }
 }
 
-export default Database;
+module.exports = DB;

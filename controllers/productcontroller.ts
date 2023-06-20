@@ -1,11 +1,9 @@
 import { Request, Response } from 'express';
+import BaseController from './basecontroller';
 
 class ProductController extends BaseController {
 
     static async index(req: Request, res: Response): Promise<void> {
-    }
-
-    static async getProduct(req: Request, res: Response): Promise<void> {
         let id = req.params.id
     
         db.exQuery(
@@ -22,6 +20,10 @@ class ProductController extends BaseController {
             console.log(err)
             res.redirect('/')
         })
+    }
+
+    static async checkout(req: Request, res: Response): Promise<void> {
+        res.redirect('/cart')
     }
 
 }

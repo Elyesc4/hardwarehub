@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
+import BaseController from './basecontroller';
 
-//todo @ebr user musst come from session
+//todo @ebr user musst come from session (make usermodel singelton)
 
 class CartController extends BaseController {
 
